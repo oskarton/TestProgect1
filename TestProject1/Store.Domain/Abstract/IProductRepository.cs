@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Store.Domain.Entities;
+using Store.Domain.Concrete;
 
 namespace Store.Domain.Abstract
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> Products { get; }
+        IEnumerable<Products> Products { get; }
     }
 }

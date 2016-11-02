@@ -1,5 +1,5 @@
-﻿@using Store.Domain.Entities
-@model IEnumerable<Product>
+﻿@using Store.Domain.Concrete
+@model IEnumerable<Products>
 
 
 @{
@@ -11,9 +11,9 @@
 @foreach (var p in @Model)
 {
     <div>
-        <h3>@p.Name</h3>
-        <p>@p.Description</p>
-        <h4>@p.Price.ToString("# rub")</h4>
+        <h3>@p.name</h3>
+        <p>@p.description</p>
+        <h4>@p.price.ToString() rub</h4>
     </div>
 }
 

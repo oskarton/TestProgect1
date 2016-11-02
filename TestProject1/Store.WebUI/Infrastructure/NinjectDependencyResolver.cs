@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using Moq;
 using Ninject;
 using Store.Domain.Abstract;
-using Store.Domain.Entities;
+using Store.Domain.Concrete;
 
 namespace Store.WebUI.Infrastructure
 {
@@ -31,14 +31,7 @@ namespace Store.WebUI.Infrastructure
 
         private void AddBindings()
         {
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
-            mock.Setup(m => m.Products).Returns(new List<Product>
-            {
-                new Product { Name = "SimCity", Price = 1499 },
-                new Product { Name = "TITANFALL", Price = 2299 },
-                new Product { Name = "Battlefield 4", Price = 899.4M }
-            });
-            kernel.Bind<IProductRepository>().ToConstant(mock.Object);
+            kernel.Bind<IProductRepository>().To<EFStoreRepository>();
         }
     }
 }
